@@ -1,0 +1,40 @@
+@import "compass";
+
+
+$background-color : rgba(10,10,25, 1);
+
+
+/*========================*/
+
+
+body {
+  background-color: $background-color;
+  color : white;
+}
+
+.agenda-form {
+  width : 450px;
+  margin: auto;
+  margin-top: 50px;
+  padding : 20px; 
+  text-align: center;
+  
+  border : 2px white solid; 
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    label {
+      display: block;
+      width: 120px;
+      line-height: 32px;
+      margin-right: 25px;
+      text-align: right;
+    }
+    input {
+    }
+  }
+  
+  .btn {
+    margin-top: 20px;
+  }
+}

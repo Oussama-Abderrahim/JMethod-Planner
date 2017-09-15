@@ -1,0 +1,33 @@
+/*========================*/
+/* line 10, app.scss */
+body {
+  background-color: #0a0a19;
+  color: white;
+}
+
+/* line 15, app.scss */
+.agenda-form {
+  width: 450px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  border: 2px white solid;
+}
+/* line 23, app.scss */
+.agenda-form .form-group {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 26, app.scss */
+.agenda-form .form-group label {
+  display: block;
+  width: 120px;
+  line-height: 32px;
+  margin-right: 25px;
+  text-align: right;
+}
+/* line 37, app.scss */
+.agenda-form .btn {
+  margin-top: 20px;
+}
