@@ -4,7 +4,7 @@ document.getElementById('dateCours').valueAsDate = new Date();
 
 
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '855673408237-6q5g41bq639klfo06a4r6q81i91f2sck.apps.googleusercontent.com';
+var CLIENT_ID = '59984866590-pduc6g4te31dc440auimjt5mpjsmakf5.apps.googleusercontent.com';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://script.googleapis.com/$discovery/rest?version=v1"];
