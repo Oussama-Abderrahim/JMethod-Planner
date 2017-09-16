@@ -32,7 +32,7 @@ function initClient() {
       discoveryDocs: DISCOVERY_DOCS,
       clientId: CLIENT_ID,
       scope: SCOPES
-    });
+    }).then(signIn);
 }
 
 
@@ -60,11 +60,15 @@ function callScriptFunction() {
     });
 }
 
+function signIn() {
+    gapi.auth2.getAuthInstance().signIn();
+
+    callScriptFunction();
+}
+
 $('#add-form').submit(function(e){
     e.preventDefault();
 
     handleClientLoad();
-    gapi.auth2.getAuthInstance().signIn();
 
-    callScriptFunction();
 });
