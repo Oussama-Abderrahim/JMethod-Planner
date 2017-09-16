@@ -67,4 +67,4 @@ $('#add-form').submit(function(e){
     gapi.auth2.getAuthInstance().signIn();
 
     callScriptFunction();
-}
+});
