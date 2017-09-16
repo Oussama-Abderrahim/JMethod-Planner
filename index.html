@@ -14,8 +14,7 @@
 	<body>
 		<div class="main-wrapper">
 			
-			<form action="https://script.google.com/macros/s/AKfycbyt2ZPXEjEJIVnFAdyjoUppYixxTllF3y-2W28O8lT_k9M2gxN5/exec" method="POST" 
-				class="agenda-form">
+			<form class="agenda-form">
 				<div class="form-group">
 					<label for="nameCours">Nom Cours : </label>
 					<input type="text" class="form-control" id="nameCours" name="name">
@@ -26,7 +25,7 @@
 					<input type="date" class="form-control" id="dateCours" name="date">
 				</div>
 				
-				<button class="btn btn-primary">Ajouter :D</button>
+				<button class="btn btn-primary" onclick="makePost();">Ajouter :D</button>
 			</form>
 			
 		</div>
