@@ -60,7 +60,9 @@ function callScriptFunction() {
     });
 }
 
-function onclickAction() {
+$('#add-form').submit(function(e){
+    e.preventDefault();
+
     handleClientLoad();
     gapi.auth2.getAuthInstance().signIn();
 
