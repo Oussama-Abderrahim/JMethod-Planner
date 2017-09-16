@@ -61,9 +61,7 @@ function callScriptFunction() {
 }
 
 function signIn() {
-    gapi.auth2.getAuthInstance().signIn();
-
-    callScriptFunction();
+    gapi.auth2.getAuthInstance().signIn().then(callScriptFunction);
 }
 
 $('#add-form').submit(function(e){
