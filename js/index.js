@@ -42,6 +42,9 @@ function initClient() {
 function callScriptFunction() {
     var scriptId = "M03gl6uGURqOwJt4wg-IiZAMT48mCopNc";
 
+    var nomCours = document.getElementById("nameCours").value;
+    var date = document.getElementById('dateCours').valueAsDate;
+
     // Call the Execution API run method
     //   'scriptId' is the URL parameter that states what script to run
     //   'resource' describes the run request body (with the function name
@@ -51,8 +54,8 @@ function callScriptFunction() {
       'resource': {
         "function": "addCours",
         "parameters": [
-          "Vrai Cours",
-          new Date()
+          nomCours,
+          date
         ]
       }
     }).then(function(resp) {
