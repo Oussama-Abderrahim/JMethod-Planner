@@ -37,6 +37,16 @@ function checkSignedIn(cb) {
   }
 }
 
+function inputValid(nom, date) {
+  if(nom === undefined || nom === "") return false; 
+
+  if(date === undefined || date == "") return false; 
+
+  return true;
+
+}
+
+
 function submitForm() {
 
   checkSignedIn(function() {
