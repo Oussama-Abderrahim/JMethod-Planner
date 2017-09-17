@@ -54,7 +54,7 @@ function submitForm() {
     var date = document.getElementById('dateCours').valueAsDate;
 
     if(inputValid(nomCours, date)) {
-      callScriptFunction("addCours", [nomCours, date]);
+      callScriptFunction("addCours", ["Cours", nomCours, date]);
     }
     else {
       alert("invalid input");
