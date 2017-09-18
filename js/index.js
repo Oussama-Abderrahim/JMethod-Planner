@@ -110,6 +110,7 @@ function showDays(days) {
 
     days.forEach(function(v){
       $("#j"+i+"-block").val(v);
+      i++;
     });
 
   })
