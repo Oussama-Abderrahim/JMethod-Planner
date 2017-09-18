@@ -116,8 +116,8 @@ function strToArray(str) {
 function showDays() {
   checkSignedIn(function(){
     callScriptFunction("getDays", [], function(resp){
-      console.log("res" + resp.result);
-      var days = strToArray(resp.result);
+      console.log("res" + resp.response.result);
+      var days = strToArray(resp.response.result);
 
       $("#jours").val("Jours : " + days);
       var i = 0;
