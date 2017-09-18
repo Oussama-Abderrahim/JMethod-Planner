@@ -23,16 +23,16 @@ body {
   width: 450px;
   margin: auto;
   margin-top: 50px;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
   border: 2px white solid;
 }
-/* line 35, app.scss */
+/* line 36, app.scss */
 .agenda-form .form-group {
   display: flex;
   justify-content: space-between;
 }
-/* line 38, app.scss */
+/* line 39, app.scss */
 .agenda-form .form-group label {
   display: block;
   width: 120px;
@@ -40,18 +40,19 @@ body {
   margin-right: 25px;
   text-align: right;
 }
-/* line 49, app.scss */
+/* line 50, app.scss */
 .agenda-form .btn {
   margin-top: 20px;
 }
 
-/* line 54, app.scss */
+/* line 55, app.scss */
 .days-form {
   width: 600px;
   margin: auto;
   margin-top: 50px;
 }
-/* line 59, app.scss */
+/* line 60, app.scss */
 .days-form ul {
   list-style: none;
+  text-align: center;
 }

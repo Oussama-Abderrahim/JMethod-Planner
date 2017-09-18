@@ -20,7 +20,6 @@
 		</div>
 		<div class="main-wrapper">
 			<form class="agenda-form" id="add-form">
-				<h3 id="jours">Jours : [0, 2, 3, 7, 30, 60]</h3>
 				<div class="form-group">
 					<label for="nameModule">Module : </label>
 					<select name="nameModule" id="nameModule" class="form-control">
@@ -40,11 +39,14 @@
 				</div>
 				
 				<button class="btn btn-primary">Ajouter :D</button>
+
+				<h3 id="jours">Jours : [0, 2, 3, 7, 30, 60]</h3>
+				<button class="btn-days btn btn-default" data-toggle="collapse" data-target="#days-form">Changer Jours</button>
 			</form>
 		</div>
-				
+	
 
-		<form class="row days-form" id="days-form">
+		<form class="days-form collapse row" id="days-form">
 			<ul>
 				<li class="col-xs-6 col-md-4">
 					<div class="j-block form-group">
