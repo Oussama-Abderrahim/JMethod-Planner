@@ -92,6 +92,10 @@ $('#days-form').submit(function(e){
     updateDays();
 });
 
+$("#btn-days").on("click", function(e){
+  e.preventDefault();
+});
+
 function signIn() {
   checkSignedIn(function(){
     showDays([0, 2, 3, 7, 30, 60]);
