@@ -109,7 +109,7 @@ function showDays() {
       console.log("res" + resp.result.response.result);
       var days = resp.result.response.result;
 
-      $("#jours").val("Jours : " + days);
+      $("#jours").html("Jours : " + days);
       var i = 0;
 
       days.forEach(function(v){
