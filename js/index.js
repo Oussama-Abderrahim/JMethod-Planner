@@ -96,8 +96,7 @@ function signIn() {
   checkSignedIn(function(){
     showDays([0, 2, 3, 7, 30, 60]);
     $("#signin-splash").fadeOut(500);
-  })
-
+  });
 }
 
 function showDays(days) {

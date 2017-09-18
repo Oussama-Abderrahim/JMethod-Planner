@@ -11,7 +11,7 @@ var SCOPES = 'https://www.googleapis.com/auth/calendar https://www.google.com/ca
 function googleSignIn(cb) {
 	googleHandleClientLoad(function(){
 		googleInitClient(function(){
-			googleSignIn(function(){
+			authSignIn(function(){
 				cb();
 			})
 		})
@@ -38,6 +38,6 @@ function googleInitClient(cb) {
 }
 
 
-function googleSignIn(cb) {
+function authSignIn(cb) {
     gapi.auth2.getAuthInstance().signIn().then(cb);
 }
