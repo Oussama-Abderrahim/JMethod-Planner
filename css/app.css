@@ -20,7 +20,7 @@ body {
 
 /* line 27, app.scss */
 .agenda-form {
-  width: 450px;
+  width: 500px;
   margin: auto;
   margin-top: 50px;
   padding: 40px;
@@ -35,7 +35,7 @@ body {
 /* line 39, app.scss */
 .agenda-form .form-group label {
   display: block;
-  width: 120px;
+  width: 150px;
   line-height: 32px;
   margin-right: 25px;
   text-align: right;
