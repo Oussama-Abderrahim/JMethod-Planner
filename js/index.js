@@ -75,7 +75,7 @@ function updateDays(){
     //check days here
 
     callScriptFunction("updateDays", [days], function(resp){
-      showDays();  
+      showDays([0, 2, 3, 7, 30, 60]);  
     });
   });
 }
@@ -92,14 +92,22 @@ $('#days-form').submit(function(e){
     updateDays();
 });
 
-function showDays() {
-  $("#jours").val(
-    "Jours : " + "[0, 2, 3, 7, 30, 60]"
-  );
-  $("#j0-block").val(0);
-  $("#j1-block").val(2);
-  $("#j2-block").val(3);
-  $("#j3-block").val(7);
-  $("#j4-block").val(30);
-  $("#j5-block").val(60);
+function signIn() {
+  checkSignedIn(function(){
+    showDays([0, 2, 3, 7, 30, 60]);
+    $("#signin-splash").fadeOut(500);
+  })
+
+}
+
+function showDays(days) {
+  checkSignedIn(function(){
+    $("#jours").val("Jours : " + days);
+    var i = 0;
+
+    days.forEach(function(v){
+      $("#j"+i+"-block").val(v);
+    });
+
+  })
 }

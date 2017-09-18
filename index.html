@@ -12,8 +12,13 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
+		<div class="signin-splash" id="signin-splash">
+			<h1>HELLO</h1>
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+			<button class="btn btn-danger" onclick="signIn();">Sign In</button>
+		</div>
 		<div class="main-wrapper">
-			
 			<form class="agenda-form" id="add-form">
 				<h3 id="jours">Jours : [0, 2, 3, 7, 30, 60]</h3>
 				<div class="form-group">

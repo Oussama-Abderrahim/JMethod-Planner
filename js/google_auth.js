@@ -9,12 +9,10 @@ var SCOPES = 'https://www.googleapis.com/auth/calendar https://www.google.com/ca
 
 
 function googleSignIn(cb) {
-	handleClientLoad(function(){
-		initClient(function(){
-			signIn(function(){
-				signIn(function(){
-					cb();
-				})
+	googleHandleClientLoad(function(){
+		googleInitClient(function(){
+			googleSignIn(function(){
+				cb();
 			})
 		})
 	})
@@ -23,7 +21,7 @@ function googleSignIn(cb) {
 /**
 *  On load, called to load the auth2 library and API client library.
 */
-function handleClientLoad(cb) {
+function googleHandleClientLoad(cb) {
     gapi.load('client:auth2', cb);
 }
 
@@ -31,7 +29,7 @@ function handleClientLoad(cb) {
 *  Initializes the API client library and sets up sign-in state
 *  listeners.
 */
-function initClient(cb) {
+function googleInitClient(cb) {
     gapi.client.init({
       discoveryDocs: DISCOVERY_DOCS,
       clientId: CLIENT_ID,
@@ -40,6 +38,6 @@ function initClient(cb) {
 }
 
 
-function signIn(cb) {
+function googleSignIn(cb) {
     gapi.auth2.getAuthInstance().signIn().then(cb);
 }

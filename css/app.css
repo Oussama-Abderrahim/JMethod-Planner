@@ -6,6 +6,19 @@ body {
 }
 
 /* line 14, app.scss */
+.signin-splash {
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 100px;
+  background-color: #0a0a19;
+}
+
+/* line 27, app.scss */
 .agenda-form {
   width: 450px;
   margin: auto;
@@ -14,12 +27,12 @@ body {
   text-align: center;
   border: 2px white solid;
 }
-/* line 22, app.scss */
+/* line 35, app.scss */
 .agenda-form .form-group {
   display: flex;
   justify-content: space-between;
 }
-/* line 25, app.scss */
+/* line 38, app.scss */
 .agenda-form .form-group label {
   display: block;
   width: 120px;
@@ -27,18 +40,18 @@ body {
   margin-right: 25px;
   text-align: right;
 }
-/* line 36, app.scss */
+/* line 49, app.scss */
 .agenda-form .btn {
   margin-top: 20px;
 }
 
-/* line 41, app.scss */
+/* line 54, app.scss */
 .days-form {
   width: 600px;
   margin: auto;
   margin-top: 50px;
 }
-/* line 46, app.scss */
+/* line 59, app.scss */
 .days-form ul {
   list-style: none;
 }
