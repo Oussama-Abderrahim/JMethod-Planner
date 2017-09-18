@@ -3,7 +3,6 @@
 
 $background-color : rgba(10,10,25, 1);
 
-
 /*========================*/
 
 
@@ -36,5 +35,15 @@ body {
   
   .btn {
     margin-top: 20px;
+  }
+}
+
+.days-form {
+  width : 600px;
+  margin: auto;
+  margin-top: 50px;
+
+  ul {
+    list-style: none;
   }
 }

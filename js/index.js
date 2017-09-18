@@ -6,7 +6,7 @@ var signedIn = false;
 /**
 * Load the API and make an API call.  Display the results on the screen.
 */
-function callScriptFunction(functionName, params) {
+function callScriptFunction(functionName, params, cb) {
     var scriptId = "M03gl6uGURqOwJt4wg-IiZAMT48mCopNc";
 
     // Call the Execution API run method
@@ -20,7 +20,7 @@ function callScriptFunction(functionName, params) {
         "parameters": params
       }
     }).then(function(resp) {
-      alert("Done !");
+      cb(resp);
     });
 }
 
@@ -39,11 +39,8 @@ function checkSignedIn(cb) {
 
 function inputValid(nom, date) {
   if(nom === undefined || nom === "") return false; 
-
   if(date === undefined || date == "") return false; 
-
   return true;
-
 }
 
 
@@ -54,7 +51,9 @@ function submitForm() {
     var date = document.getElementById('dateCours').valueAsDate;
 
     if(inputValid(nomCours, date)) {
-      callScriptFunction("addCours", ["Cours", nomCours, date]);
+      callScriptFunction("addCours", ["Cours", nomCours, date], function(){
+        alert("done");
+      });
     }
     else {
       alert("invalid input");
@@ -63,9 +62,44 @@ function submitForm() {
 
 }
 
+function updateDays(){
+  checkSignedIn(function() {
+    var days = [$("#j0-block").val(),
+                $("#j1-block").val(),
+                $("#j2-block").val(),
+                $("#j3-block").val(),
+                $("#j4-block").val(),
+                $("#j5-block").val()
+                ].join("-");
+
+    //check days here
+
+    callScriptFunction("updateDays", [days], function(resp){
+      showDays();  
+    });
+  });
+}
 
 $('#add-form').submit(function(e){
     e.preventDefault();
 
     submitForm();
 });
+
+$('#days-form').submit(function(e){
+    e.preventDefault();
+
+    updateDays();
+});
+
+function showDays() {
+  $("#jours").val(
+    "Jours : " + "[0, 2, 3, 7, 30, 60]"
+  );
+  $("#j0-block").val(0);
+  $("#j1-block").val(2);
+  $("#j2-block").val(3);
+  $("#j3-block").val(7);
+  $("#j4-block").val(30);
+  $("#j5-block").val(60);
+}

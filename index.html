@@ -15,6 +15,15 @@
 		<div class="main-wrapper">
 			
 			<form class="agenda-form" id="add-form">
+				<h3 id="jours">Jours : [0, 2, 3, 7, 30, 60]</h3>
+				<div class="form-group">
+					<label for="nameModule">Module : </label>
+					<select name="nameModule" id="nameModule" class="form-control">
+						<option value="nom1">module1</option>
+						<option value="nom1" onclick="alert("add");">Add module</option>
+					</select>
+				</div>
+
 				<div class="form-group">
 					<label for="nameCours">Nom Cours : </label>
 					<input type="text" class="form-control" id="nameCours" name="name">
@@ -27,8 +36,52 @@
 				
 				<button class="btn btn-primary">Ajouter :D</button>
 			</form>
-			
 		</div>
+				
+
+		<form class="row days-form" id="days-form">
+			<ul>
+				<li class="col-xs-6 col-md-4">
+					<div class="j-block form-group">
+						<label for="j0-block">J?</label>
+						<input type="number" class="form-control" id = "j0-block" value="0">
+					</div>
+				</li>
+				<li class="col-xs-6 col-md-4">
+					<div class="j-block form-group">
+						<label for="j1-block">J?</label>
+						<input type="number" class="form-control" id = "j1-block" value="2">
+					</div>
+				</li>
+				<li class="col-xs-6 col-md-4">
+					<div class="j-block form-group">
+						<label for="j2-block">J?</label>
+						<input type="number" class="form-control" id = "j2-block" value="4">
+					</div>
+				</li>
+				<li class="col-xs-6 col-md-4">
+					<div class="j-block form-group">
+						<label for="j3-block">J?</label>
+						<input type="number" class="form-control" id = "j3-block" value="7">
+					</div>
+				</li>
+				<li class="col-xs-6 col-md-4">
+					<div class="j-block form-group">
+						<label for="j4-block">J?</label>
+						<input type="number" class="form-control" id = "j4-block" value="30">
+					</div>
+				</li>
+				<li class="col-xs-6 col-md-4">
+					<div class="j-block form-group">
+						<label for="j5-block">J?</label>
+						<input type="number" class="form-control" id = "j5-block" value="60">
+					</div>
+				</li>
+			</ul>
+			<div class="row">
+				<button class="btn btn-default col-md-12">Appliquer</button>
+			</div>
+		</form>
 	</body>
 
     <script async defer src="https://apis.google.com/js/api.js"></script>
