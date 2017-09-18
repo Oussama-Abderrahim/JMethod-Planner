@@ -103,21 +103,11 @@ function signIn() {
   });
 }
 
-function strToArray(str) {
-  var strArr = str.split("-");
-  var arr = [];
-  strArr.forEach(function(v){
-    arr.push(parseInt(v));
-  });
-  
-  return arr;
-}
-
 function showDays() {
   checkSignedIn(function(){
     callScriptFunction("getDays", [], function(resp){
-      console.log("res" + resp.response.result);
-      var days = strToArray(resp.response.result);
+      console.log("res" + resp.result);
+      var days = resp.result;
 
       $("#jours").val("Jours : " + days);
       var i = 0;
