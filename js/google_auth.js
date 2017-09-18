@@ -5,7 +5,7 @@ var DISCOVERY_DOCS = ["https://script.googleapis.com/$discovery/rest?version=v1"
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = 'https://www.googleapis.com/auth/calendar https://www.google.com/calendar/feeds';
+var SCOPES = 'https://www.googleapis.com/auth/calendar https://www.google.com/calendar/feeds https://www.googleapis.com/auth/script.storage';
 
 
 function googleSignIn(cb) {
