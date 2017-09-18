@@ -107,7 +107,7 @@ function showDays() {
   checkSignedIn(function(){
     callScriptFunction("getDays", [], function(resp){
       console.log("res" + resp.result.response.result);
-      var days = resp.result;
+      var days = resp.result.response.result;
 
       $("#jours").val("Jours : " + days);
       var i = 0;
