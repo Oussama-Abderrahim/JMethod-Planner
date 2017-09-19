@@ -2,13 +2,16 @@
 
 
 $background-img-url : "https://www.outboxonline.com/wordpress2/wp-content/uploads/2015/07/iStock_000016605904_web-1200x565.jpg";
-$background-color : rgba(10,10,25, .75);
+
+$background-color75 : rgba(10,10,25, .75);
+$background-color25 : rgba(10,10,25, .75);
+$background-color : rgba(10,10,25, 1);
 
 /*========================*/
 
 
 body {
-  background-color: $background-color;
+  background-color: $background-color75;
   background: url($background-img-url) no-repeat center fixed; 
   background-size: cover;
 
@@ -35,7 +38,7 @@ body {
 }
 
 .agenda-form {
-  background-color: $background-color;
+  background-color: $background-color75;
 
   width : 500px;
   margin: auto;
@@ -48,6 +51,7 @@ body {
   .form-group {
     display: flex;
     justify-content: space-between;
+
     label {
       display: block;
       width: 150px;
@@ -68,9 +72,18 @@ body {
   width : 600px;
   margin: auto;
   margin-top: 50px;
+  padding: 10px 30px 20px 30px;
+  text-align: center;
+
+  background-color: $background-color25;
+  border : 2px white solid; 
 
   ul {
     list-style: none;
     text-align: center;
+  }
+  button {
+    margin: auto;
+    margin-top: 15px;
   }
 }

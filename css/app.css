@@ -1,5 +1,5 @@
 /*========================*/
-/* line 10, app.scss */
+/* line 13, app.scss */
 body {
   background-color: rgba(10, 10, 25, 0.75);
   background: url("https://www.outboxonline.com/wordpress2/wp-content/uploads/2015/07/iStock_000016605904_web-1200x565.jpg") no-repeat center fixed;
@@ -7,7 +7,7 @@ body {
   color: white;
 }
 
-/* line 18, app.scss */
+/* line 21, app.scss */
 .signin-splash {
   z-index: 9999;
   position: absolute;
@@ -18,15 +18,15 @@ body {
   right: 0;
   text-align: center;
   padding-top: 100px;
-  background-color: rgba(10, 10, 25, 0.75);
+  background-color: #0a0a19;
 }
-/* line 31, app.scss */
+/* line 34, app.scss */
 .signin-splash button {
   margin-top: 50px;
   height: 36px;
 }
 
-/* line 37, app.scss */
+/* line 40, app.scss */
 .agenda-form {
   background-color: rgba(10, 10, 25, 0.75);
   width: 500px;
@@ -36,12 +36,12 @@ body {
   text-align: center;
   border: 2px white solid;
 }
-/* line 48, app.scss */
+/* line 51, app.scss */
 .agenda-form .form-group {
   display: flex;
   justify-content: space-between;
 }
-/* line 51, app.scss */
+/* line 55, app.scss */
 .agenda-form .form-group label {
   display: block;
   width: 150px;
@@ -49,19 +49,28 @@ body {
   margin-right: 25px;
   text-align: justify;
 }
-/* line 62, app.scss */
+/* line 66, app.scss */
 .agenda-form .btn {
   margin-top: 20px;
 }
 
-/* line 67, app.scss */
+/* line 71, app.scss */
 .days-form {
   width: 600px;
   margin: auto;
   margin-top: 50px;
+  padding: 10px 30px 20px 30px;
+  text-align: center;
+  background-color: rgba(10, 10, 25, 0.75);
+  border: 2px white solid;
 }
-/* line 72, app.scss */
+/* line 81, app.scss */
 .days-form ul {
   list-style: none;
   text-align: center;
+}
+/* line 85, app.scss */
+.days-form button {
+  margin: auto;
+  margin-top: 15px;
 }
