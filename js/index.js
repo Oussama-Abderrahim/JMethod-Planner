@@ -5,22 +5,26 @@ $("document").on("ready", function() {
 
 	document.getElementById('dateCours').valueAsDate = new Date();
 
-	$('#add-form').submit(function(e){
-	    e.preventDefault();
-
-	    submitForm();
-	});
-
-	$('#days-form').submit(function(e){
-	    e.preventDefault();
-
-	    updateDays();
-	});
-
-	$("#btn-days").on("click", function(e){
-	  e.preventDefault();
-	});	
+	if(isSignedIn()) {
+		signInAction();
+	};
 });
+
+$('#add-form').submit(function(e){
+    e.preventDefault();
+
+    submitForm();
+});
+
+$('#days-form').submit(function(e){
+    e.preventDefault();
+
+    updateDays();
+});
+
+$("#btn-days").on("click", function(e){
+  e.preventDefault();
+});	
 
 /**
 * Load the API and make an API call.  call cb() with response .
@@ -41,19 +45,26 @@ function callScriptFunction(functionName, params, cb) {
     });
 }
 
+
+function isSignedIn(){
+	if(!gapi.auth2 || !gapi.auth2.getAuthInstance())
+  		return false;
+
+  	return gapi.auth2.getAuthInstance().isSignedIn.get();
+}
+
 /**
 *  Check if user is signed in, if not sign in, and call cb()
 */
 function checkSignedIn(cb) {
-  if(!gapi.auth2 || !gapi.auth2.getAuthInstance()
-  	|| !gapi.auth2.getAuthInstance().isSignedIn.get()) {
+	if(!isSignedIn()) {
 	    googleSignIn(function(){
 	      cb();  
-    });
-  }
-  else {
-    cb();
-  }
+		});
+	}
+	else {
+		cb();
+	}
 }
 
 
