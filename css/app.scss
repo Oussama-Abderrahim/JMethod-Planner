@@ -1,13 +1,17 @@
 @import "compass";
 
 
-$background-color : rgba(10,10,25, 1);
+$background-img-url : "https://www.outboxonline.com/wordpress2/wp-content/uploads/2015/07/iStock_000016605904_web-1200x565.jpg";
+$background-color : rgba(10,10,25, .75);
 
 /*========================*/
 
 
 body {
   background-color: $background-color;
+  background: url($background-img-url) no-repeat center fixed; 
+  background-size: cover;
+
   color : white;
 }
 
@@ -31,6 +35,8 @@ body {
 }
 
 .agenda-form {
+  background-color: $background-color;
+
   width : 500px;
   margin: auto;
   margin-top: 50px;
