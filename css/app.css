@@ -9,6 +9,7 @@ body {
 .signin-splash {
   z-index: 9999;
   position: absolute;
+  width: 100%;
   top: 0;
   bottom: 0;
   left: 0;
@@ -17,8 +18,13 @@ body {
   padding-top: 100px;
   background-color: #0a0a19;
 }
-
 /* line 27, app.scss */
+.signin-splash button {
+  margin-top: 50px;
+  height: 36px;
+}
+
+/* line 33, app.scss */
 .agenda-form {
   width: 500px;
   margin: auto;
@@ -27,31 +33,31 @@ body {
   text-align: center;
   border: 2px white solid;
 }
-/* line 36, app.scss */
+/* line 42, app.scss */
 .agenda-form .form-group {
   display: flex;
   justify-content: space-between;
 }
-/* line 39, app.scss */
+/* line 45, app.scss */
 .agenda-form .form-group label {
   display: block;
   width: 150px;
   line-height: 32px;
   margin-right: 25px;
-  text-align: right;
+  text-align: justify;
 }
-/* line 50, app.scss */
+/* line 56, app.scss */
 .agenda-form .btn {
   margin-top: 20px;
 }
 
-/* line 55, app.scss */
+/* line 61, app.scss */
 .days-form {
   width: 600px;
   margin: auto;
   margin-top: 50px;
 }
-/* line 60, app.scss */
+/* line 66, app.scss */
 .days-form ul {
   list-style: none;
   text-align: center;

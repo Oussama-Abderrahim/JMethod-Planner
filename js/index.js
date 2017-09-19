@@ -1,20 +1,37 @@
 
-document.getElementById('dateCours').valueAsDate = new Date();
+var SCRIPT_ID = "M03gl6uGURqOwJt4wg-IiZAMT48mCopNc";
 
-var signedIn = false;
+$("document").on("ready", function() {
+
+	document.getElementById('dateCours').valueAsDate = new Date();
+
+	$('#add-form').submit(function(e){
+	    e.preventDefault();
+
+	    submitForm();
+	});
+
+	$('#days-form').submit(function(e){
+	    e.preventDefault();
+
+	    updateDays();
+	});
+
+	$("#btn-days").on("click", function(e){
+	  e.preventDefault();
+	});	
+});
 
 /**
-* Load the API and make an API call.  Display the results on the screen.
+* Load the API and make an API call.  call cb() with response .
 */
 function callScriptFunction(functionName, params, cb) {
-    var scriptId = "M03gl6uGURqOwJt4wg-IiZAMT48mCopNc";
-
     // Call the Execution API run method
     //   'scriptId' is the URL parameter that states what script to run
     //   'resource' describes the run request body (with the function name
     //              to execute)
     gapi.client.script.scripts.run({
-      'scriptId': scriptId,
+      'scriptId': SCRIPT_ID,
       'resource': {
         "function": functionName,
         "parameters": params
@@ -24,18 +41,29 @@ function callScriptFunction(functionName, params, cb) {
     });
 }
 
-
+/**
+*  Check if user is signed in, if not sign in, and call cb()
+*/
 function checkSignedIn(cb) {
-  if(!signedIn) {
-    googleSignIn(function(){
-      signedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
-      cb();  
+  if(!gapi.auth2 || !gapi.auth2.getAuthInstance()
+  	|| !gapi.auth2.getAuthInstance().isSignedIn.get()) {
+	    googleSignIn(function(){
+	      cb();  
     });
   }
   else {
     cb();
   }
 }
+
+
+function signInAction() {
+  checkSignedIn(function(){
+    showDays();
+    $("#signin-splash").fadeOut(500);
+  });
+}
+
 
 function inputValid(nom, date) {
   if(nom === undefined || nom === "") return false; 
@@ -45,68 +73,49 @@ function inputValid(nom, date) {
 
 
 function submitForm() {
-
   checkSignedIn(function() {
     var nomCours = document.getElementById("nameCours").value;
     var date = document.getElementById('dateCours').valueAsDate;
 
     if(inputValid(nomCours, date)) {
       callScriptFunction("addCours", ["Cours", nomCours, date], function(){
-        alert("done");
+        alert("Done !");
       });
     }
     else {
-      alert("invalid input");
+      alert("Vous avez bien tout tappé ? ^_^");
     }
   });
-
 }
 
+/**
+*  set days in Google calendar script, 
+*  call showDays()
+*/
 function updateDays(){
   checkSignedIn(function() {
-    var days = [$("#j0-block").val(),
-                $("#j1-block").val(),
-                $("#j2-block").val(),
-                $("#j3-block").val(),
-                $("#j4-block").val(),
-                $("#j5-block").val()
-                ].join("-");
+    var days = [];
+
+    for(var i = 0; i < 6; i++) {
+      days.push($("#j"+i+"-block").val());
+    }
+    var strDays = days.join("-");
 
     //check days here
-
-    callScriptFunction("updateDays", [days], function(resp){
+    callScriptFunction("updateDays", [strDays], function(resp){
       showDays();  
+      alert("done");
     });
   });
 }
 
-$('#add-form').submit(function(e){
-    e.preventDefault();
-
-    submitForm();
-});
-
-$('#days-form').submit(function(e){
-    e.preventDefault();
-
-    updateDays();
-});
-
-$("#btn-days").on("click", function(e){
-  e.preventDefault();
-});
-
-function signIn() {
-  checkSignedIn(function(){
-    showDays();
-    $("#signin-splash").fadeOut(500);
-  });
-}
-
+/**
+*  get days from Google calendar script, 
+*  print days on inputs and #jours text
+*/
 function showDays() {
   checkSignedIn(function(){
     callScriptFunction("getDays", [], function(resp){
-      console.log("res" + resp.result.response.result);
       var days = resp.result.response.result;
 
       $("#jours").html("Jours : " + days);
@@ -117,7 +126,5 @@ function showDays() {
         i++;
       });
     });
-
-
   })
 }
