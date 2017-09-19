@@ -1,30 +1,30 @@
 
 var SCRIPT_ID = "M03gl6uGURqOwJt4wg-IiZAMT48mCopNc";
 
-$("document").on("ready", function() {
-
+$(document).ready(function() {
 	document.getElementById('dateCours').valueAsDate = new Date();
 
+	$('#add-form').submit(function(e){
+	    e.preventDefault();
+
+	    submitForm();
+	});
+
+	$('#days-form').submit(function(e){
+	    e.preventDefault();
+
+	    updateDays();
+	});
+
+	$("#btn-days").on("click", function(e){
+	  e.preventDefault();
+	});
+		
 	if(isSignedIn()) {
 		signInAction();
 	};
 });
 
-$('#add-form').submit(function(e){
-    e.preventDefault();
-
-    submitForm();
-});
-
-$('#days-form').submit(function(e){
-    e.preventDefault();
-
-    updateDays();
-});
-
-$("#btn-days").on("click", function(e){
-  e.preventDefault();
-});	
 
 /**
 * Load the API and make an API call.  call cb() with response .
