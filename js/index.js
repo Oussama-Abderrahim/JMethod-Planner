@@ -23,9 +23,15 @@ $(document).ready(function() {
 	if(isSignedIn()) {
 		signInAction();
 	};
+
 });
 
-
+function loadModule(){
+	callScriptFunction("getCalendarsNames", [], function(resp){
+		// $("#nameModule");
+		console.log("calendars : " + resp.result.response.result);
+	})
+}
 /**
 * Load the API and make an API call.  call cb() with response .
 */
@@ -71,6 +77,7 @@ function checkSignedIn(cb) {
 function signInAction() {
   checkSignedIn(function(){
     showDays();
+    loadModule();
     $("#signin-splash").fadeOut(500);
   });
 }
@@ -129,7 +136,7 @@ function showDays() {
     callScriptFunction("getDays", [], function(resp){
       var days = resp.result.response.result;
 
-      $("#jours").html("Jours : " + days);
+      $("#jours").html("Jours : " + days.join(", "));
       var i = 0;
 
       days.forEach(function(v){

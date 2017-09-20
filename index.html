@@ -12,17 +12,16 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<div class="signin-splash" id="signin-splash">
-			<h1>Bonjour ! :D</h1>
-			<button class="btn btn-danger" onclick="signInAction();">Se connecter à Google</button>
-		</div>
 		<div class="main-wrapper">
+			<div class="signin-splash" id="signin-splash">
+				<h1>Bonjour ! :D</h1>
+				<button class="btn btn-danger" onclick="signInAction();">Se connecter à Google</button>
+			</div>
 			<form class="agenda-form" id="add-form">
 				<div class="form-group">
 					<label for="nameModule">Module : </label>
 					<select name="nameModule" id="nameModule" class="form-control">
-						<option value="nom1">module1</option>
-						<option value="nom1" onclick="alert("add");">Add module</option>
+						
 					</select>
 				</div>
 
@@ -42,54 +41,61 @@
 
 				<button class="btn btn-default" id="btn-days" data-toggle="collapse" data-target="#days-form">Changer Jours</button>
 			</form>
-		</div>
-	
 
-		<form class="days-form collapse row" id="days-form">
-			<ul>
-				<li class="col-xs-6 col-md-4">
-					<div class="j-block form-group">
-						<label for="j0-block">J?</label>
-						<input type="number" class="form-control" id = "j0-block" value="0">
-					</div>
-				</li>
-				<li class="col-xs-6 col-md-4">
-					<div class="j-block form-group">
-						<label for="j1-block">J?</label>
-						<input type="number" class="form-control" id = "j1-block" value="2">
-					</div>
-				</li>
-				<li class="col-xs-6 col-md-4">
-					<div class="j-block form-group">
-						<label for="j2-block">J?</label>
-						<input type="number" class="form-control" id = "j2-block" value="4">
-					</div>
-				</li>
-				<li class="col-xs-6 col-md-4">
-					<div class="j-block form-group">
-						<label for="j3-block">J?</label>
-						<input type="number" class="form-control" id = "j3-block" value="7">
-					</div>
-				</li>
-				<li class="col-xs-6 col-md-4">
-					<div class="j-block form-group">
-						<label for="j4-block">J?</label>
-						<input type="number" class="form-control" id = "j4-block" value="30">
-					</div>
-				</li>
-				<li class="col-xs-6 col-md-4">
-					<div class="j-block form-group">
-						<label for="j5-block">J?</label>
-						<input type="number" class="form-control" id = "j5-block" value="60">
-					</div>
-				</li>
-			</ul>
-			<div class="row">
-				<span class="col-xs-2"></span>
-				<button class="btn btn-default col-xs-8">Appliquer</button>
-				<span class="col-xs-2"></span>
+			<form class="collapse row days-form" id="days-form">
+				<ul>
+					<li class="col-xs-6 col-md-4">
+						<div class="j-block form-group">
+							<label for="j0-block">J?</label>
+							<input type="number" class="form-control" id = "j0-block" value="0">
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-4">
+						<div class="j-block form-group">
+							<label for="j1-block">J?</label>
+							<input type="number" class="form-control" id = "j1-block" value="2">
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-4">
+						<div class="j-block form-group">
+							<label for="j2-block">J?</label>
+							<input type="number" class="form-control" id = "j2-block" value="4">
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-4">
+						<div class="j-block form-group">
+							<label for="j3-block">J?</label>
+							<input type="number" class="form-control" id = "j3-block" value="7">
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-4">
+						<div class="j-block form-group">
+							<label for="j4-block">J?</label>
+							<input type="number" class="form-control" id = "j4-block" value="30">
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-4">
+						<div class="j-block form-group">
+							<label for="j5-block">J?</label>
+							<input type="number" class="form-control" id = "j5-block" value="60">
+						</div>
+					</li>
+				</ul>
+				<div class="row">
+					<span class="col-xs-2"></span>
+					<button class="btn btn-default col-xs-8">Appliquer</button>
+					<span class="col-xs-2"></span>
+				</div>
+			</form>
+
+			<div class="footer">
+				<button class="btn btn-sm btn-color1 btn-color"></button>
+				<button class="btn btn-sm btn-color2 btn-color"></button>
+				<button class="btn btn-sm btn-color3 btn-color"></button>
+				<button class="btn btn-sm btn-color4 btn-color"></button>
+				<button class="btn btn-sm btn-color5 btn-color"></button>
 			</div>
-		</form>
+		</div>
 	</body>
 
     <script async defer src="https://apis.google.com/js/api.js"></script>

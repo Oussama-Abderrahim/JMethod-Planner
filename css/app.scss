@@ -80,10 +80,27 @@ body {
 
   ul {
     list-style: none;
+    margin: auto;
     text-align: center;
   }
   button {
     margin: auto;
     margin-top: 15px;
   }
+}
+
+.footer {
+  position: absolute;
+  background-color: black;
+  bottom: 0;
+  height: 35px;
+  width: 100%;
+  padding: 5px 50px;
+  text-align: right;
+
+  button {
+    height: 25px;
+    margin: auto;
+  }
+
 }
