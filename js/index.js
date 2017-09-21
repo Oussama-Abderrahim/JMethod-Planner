@@ -130,9 +130,11 @@ function submitForm() {
     var module = e.options[e.selectedIndex].text;
 
     if(inputValid(module, nomCours, date)) {
-      clearInputs();
+      $("#load-screen").css("visibility", "visible");
+
       callScriptFunction("addCours", [module, nomCours, date], function(){
-        alert("Done !");
+        clearInputs();
+        $("#load-screen").css("visibility", "hidden");
       });
     }
     else {

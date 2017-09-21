@@ -61,9 +61,10 @@ body {
 /* line 73, app.scss */
 .load-screen {
   visibility: hidden;
+  background-color: rgba(10, 10, 25, 0.75);
 }
 
-/* line 77, app.scss */
+/* line 79, app.scss */
 .form {
   width: 70%;
   margin: auto;
@@ -73,17 +74,17 @@ body {
   border: 2px white solid;
 }
 
-/* line 88, app.scss */
+/* line 90, app.scss */
 .agenda-form {
   background-color: rgba(10, 10, 25, 0.75);
   padding: 40px;
 }
-/* line 93, app.scss */
+/* line 95, app.scss */
 .agenda-form .form-group {
   display: flex;
   justify-content: space-between;
 }
-/* line 97, app.scss */
+/* line 99, app.scss */
 .agenda-form .form-group label {
   display: block;
   width: 150px;
@@ -91,30 +92,30 @@ body {
   margin-right: 25px;
   text-align: justify;
 }
-/* line 106, app.scss */
+/* line 108, app.scss */
 .agenda-form .btn {
   margin-top: 20px;
 }
 
-/* line 111, app.scss */
+/* line 113, app.scss */
 .days-form {
   width: 80%;
   padding: 10px 30px 20px 30px;
   background-color: rgba(10, 10, 25, 0.75);
 }
-/* line 117, app.scss */
+/* line 119, app.scss */
 .days-form ul {
   list-style: none;
   margin: auto;
   text-align: center;
 }
-/* line 122, app.scss */
+/* line 124, app.scss */
 .days-form button {
   margin: auto;
   margin-top: 15px;
 }
 
-/* line 128, app.scss */
+/* line 130, app.scss */
 .footer {
   position: fixed;
   bottom: 0;
@@ -126,7 +127,7 @@ body {
   background-color: black;
   text-align: right;
 }
-/* line 140, app.scss */
+/* line 142, app.scss */
 .footer button {
   height: 25px;
   margin: auto;
