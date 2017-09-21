@@ -2,7 +2,7 @@
 var SCRIPT_ID = "M03gl6uGURqOwJt4wg-IiZAMT48mCopNc";
 
 $(document).ready(function() {
-	document.getElementById('dateCours').valueAsDate = new Date();
+	clearInputs();
 
 	$('#add-form').submit(function(e){
 	    e.preventDefault();
@@ -27,24 +27,40 @@ $(document).ready(function() {
 });
 
 function loadModule(){
+
 	callScriptFunction("getCalendarsNames", [], function(resp){
-		// $("#nameModule");
-		console.log("calendars : " + resp.result.response.result);
+		
+		var selectBox = document.getElementById("nameModule");
 		var modules = resp.result.response.result;
 
-		var select = document.getElementById("nameModule");
+		// Clear all options 
+		var i;
+	    for(i = selectBox.options.length - 1 ; i >= 0 ; i--)
+	    {
+	        selectBox.remove(i);
+	    }
 
-		modules.forEach(function(v){
-			var option = document.createElement("option");
-			option.text = v;
-			select.add(option);
-		});
+	    if(modules.length === 0) {
+		    // Add default option ( autres )
+		    var option = document.createElement("option");
+			option.text = "Autres";
+			selectBox.add(option);
+		} else {
+			// Add others
+			modules.forEach(function(v){
+				var option = document.createElement("option");
+				option.text = v;
+				selectBox.add(option);
+			});
+		}
 	})
 }
 
 function changeModule(){
-	var e = document.getElementById("ddlViewBy");
-	var strUser = e.options[e.selectedIndex].value;
+	var select = document.getElementById("nameModule");
+	var module = e.options[e.selectedIndex].value;
+
+	console.log("module");
 }
 
 /**
@@ -98,7 +114,8 @@ function signInAction() {
 }
 
 
-function inputValid(nom, date) {
+function inputValid(module, nom, date) {
+  if(module === undefined || module === "") return false; 
   if(nom === undefined || nom === "") return false; 
   if(date === undefined || date == "") return false; 
   return true;
@@ -109,9 +126,12 @@ function submitForm() {
   checkSignedIn(function() {
     var nomCours = document.getElementById("nameCours").value;
     var date = document.getElementById('dateCours').valueAsDate;
+    var e = document.getElementById("nameModule");
+    var module = e.options[e.selectedIndex].text;
 
-    if(inputValid(nomCours, date)) {
-      callScriptFunction("addCours", ["Cours", nomCours, date], function(){
+    if(inputValid(module, nomCours, date)) {
+      clearInputs();
+      callScriptFunction("addCours", [module, nomCours, date], function(){
         alert("Done !");
       });
     }
@@ -119,6 +139,11 @@ function submitForm() {
       alert("Vous avez bien tout tappé ? ^_^");
     }
   });
+}
+
+function clearInputs() {
+	document.getElementById("nameCours").value = "";
+	document.getElementById('dateCours').valueAsDate = new Date();
 }
 
 /**

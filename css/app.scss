@@ -45,17 +45,18 @@ body {
   background-color: $background-color;
 }
 
-  .signin-screen {
-    text-align: center;
+.signin-screen {
+  text-align: center;
 
-    button {
-      margin-top: 50px;
-      height: 36px;
+  button {
+    margin-top: 50px;
+    height: 36px;
   }
 
   .intro-text {
-    width: 100%;
+    
     margin: auto;
+    margin-left: 20%;
     margin-top: 100px;
     
     font-size: 1.2em;
@@ -69,9 +70,12 @@ body {
   }
 }
 
+.load-screen {
+  visibility: hidden;
+}
 
 .form {
-  width : 90%;
+  width : 70%;
   margin: auto;
   margin-top: 50px;
   text-align: center;
@@ -105,10 +109,10 @@ body {
 }
 
 .days-form {
+  width: 80%;
   padding: 10px 30px 20px 30px;
 
   background-color: $background-color25;
-  border : 2px white solid; 
 
   ul {
     list-style: none;
