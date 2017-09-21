@@ -128,14 +128,14 @@ function loadModule(){
 
     // Clear all options 
     var i;
-      for(i = selectBox.options.length - 1 ; i >= 0 ; i--)
-      {
-          selectBox.remove(i);
-      }
+    for(i = selectBox.options.length - 1 ; i >= 0 ; i--)
+    {
+        selectBox.remove(i);
+    }
 
-      if(modules.length === 0) {
-        // Add default option ( autres )
-        var option = document.createElement("option");
+    if(modules.length === 0) {
+      // Add default option ( autres )
+      var option = document.createElement("option");
       option.text = "Autres";
       selectBox.add(option);
     } else {
@@ -146,14 +146,40 @@ function loadModule(){
         selectBox.add(option);
       });
     }
+
+    var addModuleOption = document.createElement("option");
+    addModuleOption.text = "Ajouter Module...";
+    selectBox.add(addModuleOption);
+
   })
 }
 
 function changeModule(){
   var select = document.getElementById("nameModule");
-  var module = e.options[e.selectedIndex].value;
 
-  console.log("module");
+  if(select.selectedIndex >= select.length-1) {
+    addModule();
+  }
+}
+
+function addModule() {
+  var select = document.getElementById("nameModule");
+
+  select.remove(select.options.length-1);
+
+  var module = prompt("Ajouter un nouveau module ? ");
+
+  if(module != "") {
+    var option = document.createElement("option");
+    option.text = module;
+    select.add(option);
+
+    var addModuleOption = document.createElement("option");
+    addModuleOption.text = "Ajouter Module...";
+    select.add(addModuleOption);
+
+    select.selectedIndex = select.length-2;
+  }
 }
 
 
