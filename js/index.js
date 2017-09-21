@@ -6,13 +6,11 @@ $(document).ready(function() {
 
 	$('#add-form').submit(function(e){
 	    e.preventDefault();
-
 	    submitForm();
 	});
 
 	$('#days-form').submit(function(e){
 	    e.preventDefault();
-
 	    updateDays();
 	});
 
@@ -21,67 +19,15 @@ $(document).ready(function() {
 	});
 		
 	if(isSignedIn()) {
-		signInAction();
-	};
+    signInAction();
+  };
 
 });
 
-function loadModule(){
 
-	callScriptFunction("getCalendarsNames", [], function(resp){
-		
-		var selectBox = document.getElementById("nameModule");
-		var modules = resp.result.response.result;
-
-		// Clear all options 
-		var i;
-	    for(i = selectBox.options.length - 1 ; i >= 0 ; i--)
-	    {
-	        selectBox.remove(i);
-	    }
-
-	    if(modules.length === 0) {
-		    // Add default option ( autres )
-		    var option = document.createElement("option");
-			option.text = "Autres";
-			selectBox.add(option);
-		} else {
-			// Add others
-			modules.forEach(function(v){
-				var option = document.createElement("option");
-				option.text = v;
-				selectBox.add(option);
-			});
-		}
-	})
-}
-
-function changeModule(){
-	var select = document.getElementById("nameModule");
-	var module = e.options[e.selectedIndex].value;
-
-	console.log("module");
-}
-
-/**
-* Load the API and make an API call.  call cb() with response .
-*/
-function callScriptFunction(functionName, params, cb) {
-    // Call the Execution API run method
-    //   'scriptId' is the URL parameter that states what script to run
-    //   'resource' describes the run request body (with the function name
-    //              to execute)
-    gapi.client.script.scripts.run({
-      'scriptId': SCRIPT_ID,
-      'resource': {
-        "function": functionName,
-        "parameters": params
-      }
-    }).then(function(resp) {
-      cb(resp);
-    });
-}
-
+/*=========================================================
+          ***       Sign in Methods      ***
+===========================================================*/
 
 function isSignedIn(){
 	if(!gapi.auth2 || !gapi.auth2.getAuthInstance())
@@ -113,6 +59,28 @@ function signInAction() {
   });
 }
 
+/**
+* Load the API and make an API call.  call cb() with response .
+*/
+function callScriptFunction(functionName, params, cb) {
+    // Call the Execution API run method
+    //   'scriptId' is the URL parameter that states what script to run
+    //   'resource' describes the run request body (with the function name
+    //              to execute)
+    gapi.client.script.scripts.run({
+      'scriptId': SCRIPT_ID,
+      'resource': {
+        "function": functionName,
+        "parameters": params
+      }
+    }).then(function(resp) {
+      cb(resp);
+    });
+}
+
+/*=========================================================
+          ***       Submit Forms      ***
+===========================================================*/
 
 function inputValid(module, nom, date) {
   if(module === undefined || module === "") return false; 
@@ -120,7 +88,6 @@ function inputValid(module, nom, date) {
   if(date === undefined || date == "") return false; 
   return true;
 }
-
 
 function submitForm() {
   checkSignedIn(function() {
@@ -143,10 +110,52 @@ function submitForm() {
   });
 }
 
+/*=========================================================
+          ***       Load methods       ***
+===========================================================*/
+
 function clearInputs() {
 	document.getElementById("nameCours").value = "";
 	document.getElementById('dateCours').valueAsDate = new Date();
 }
+
+function loadModule(){
+
+  callScriptFunction("getCalendarsNames", [], function(resp){
+    
+    var selectBox = document.getElementById("nameModule");
+    var modules = resp.result.response.result;
+
+    // Clear all options 
+    var i;
+      for(i = selectBox.options.length - 1 ; i >= 0 ; i--)
+      {
+          selectBox.remove(i);
+      }
+
+      if(modules.length === 0) {
+        // Add default option ( autres )
+        var option = document.createElement("option");
+      option.text = "Autres";
+      selectBox.add(option);
+    } else {
+      // Add others
+      modules.forEach(function(v){
+        var option = document.createElement("option");
+        option.text = v;
+        selectBox.add(option);
+      });
+    }
+  })
+}
+
+function changeModule(){
+  var select = document.getElementById("nameModule");
+  var module = e.options[e.selectedIndex].value;
+
+  console.log("module");
+}
+
 
 /**
 *  set days in Google calendar script, 
@@ -161,10 +170,11 @@ function updateDays(){
     }
     var strDays = days.join("-");
 
-    //check days here
+    /// TODO : check days here
+    $("#load-screen").css("visibility", "visible");
     callScriptFunction("updateDays", [strDays], function(resp){
+      $("#load-screen").css("visibility", "hidden");
       showDays();  
-      alert("done");
     });
   });
 }
