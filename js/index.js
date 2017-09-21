@@ -169,7 +169,7 @@ function addModule() {
 
   var module = prompt("Ajouter un nouveau module ? ");
 
-  if(module != "") {
+  if(module !== "" && module != null) {
     var option = document.createElement("option");
     option.text = module;
     select.add(option);
@@ -180,6 +180,14 @@ function addModule() {
 
     select.selectedIndex = select.length-2;
   }
+  else {
+    var addModuleOption = document.createElement("option");
+    addModuleOption.text = "Ajouter Module...";
+    select.add(addModuleOption);
+    
+    select.selectedIndex = 0;
+  }
+
 }
 
 
