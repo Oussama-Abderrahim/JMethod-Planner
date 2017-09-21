@@ -30,8 +30,23 @@ function loadModule(){
 	callScriptFunction("getCalendarsNames", [], function(resp){
 		// $("#nameModule");
 		console.log("calendars : " + resp.result.response.result);
+		var modules = resp.result.response.result;
+
+		var select = document.getElementById("nameModule");
+
+		modules.forEach(function(v){
+			var option = document.createElement("option");
+			option.text = v;
+			select.add(option);
+		});
 	})
 }
+
+function changeModule(){
+	var e = document.getElementById("ddlViewBy");
+	var strUser = e.options[e.selectedIndex].value;
+}
+
 /**
 * Load the API and make an API call.  call cb() with response .
 */

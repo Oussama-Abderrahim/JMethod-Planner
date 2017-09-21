@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>JMethod Planner</title>
 		<!-- BOOTSTRAP -->
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -12,15 +12,22 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<div class="main-wrapper">
-			<div class="signin-splash" id="signin-splash">
+		<div class="l-screen">
+			<div class="splash signin-screen" id="signin-splash">
 				<h1>Bonjour ! :D</h1>
 				<button class="btn btn-danger" onclick="signInAction();">Se connecter à Google</button>
+	
+				<div class="intro-text">
+					<h1>La methode des J : </h1>
+					<p>La méthode des J, ou méthode des Jours, repose sur la répétition pour l'apprentissage des cours. Prenons un cours.<br>La méthode des J implique que je vais apprendre ce cours à J0 et à J1 puis le réviser à J3, J7, J14, J1mois, J2mois.<br> En tout, je vais voir ce cours 7 fois, le but étant de le connaître par coeur, même deux mois après!</p>
+				</div>
 			</div>
-			<form class="agenda-form" id="add-form">
+
+			<form class="form agenda-form" id="add-form">
 				<div class="form-group">
 					<label for="nameModule">Module : </label>
-					<select name="nameModule" id="nameModule" class="form-control">
+					<select name="nameModule" id="nameModule" class="form-control"
+						onchange="changeModule()">
 						
 					</select>
 				</div>
@@ -42,7 +49,7 @@
 				<button class="btn btn-default" id="btn-days" data-toggle="collapse" data-target="#days-form">Changer Jours</button>
 			</form>
 
-			<form class="collapse row days-form" id="days-form">
+			<form class="form days-form collapse row" id="days-form">
 				<ul>
 					<li class="col-xs-6 col-md-4">
 						<div class="j-block form-group">
