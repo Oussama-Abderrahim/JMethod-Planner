@@ -77,9 +77,43 @@ body {
 
 .load-screen {
   visibility: hidden;
-
+  font-size: 32px;
+  text-align: center;
   background-color: $background-color25;
 }
+
+.loader {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  margin-bottom: 6px;
+  vertical-align: middle;
+
+  border: 6px solid rgba(255, 255, 255,0.4);
+  border-radius: 50px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
+
+    border: 6px solid transparent;
+    border-top-color: white;
+    border-radius: 50px;
+    @include animation(spin 1s linear infinite);
+  }
+}
+
+@keyframes spin {
+  0%{ @include transform(rotate(0deg)); }
+  100%{ @include transform(rotate(360deg)); }
+}
+
 
 .form {
   width : 70%;
